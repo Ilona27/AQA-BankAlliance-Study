@@ -4,7 +4,7 @@ import homework.Practise;
 
 public class Main {
     public static void main(String[] args) {
-        Practise practise = new Practise();
+        HomeworkLesson2NickZ practise = new HomeworkLesson2NickZ();
         System.out.println(practise.checkPositive(-10));
         System.out.println(practise.temperature(37.6));
         int a = 50;
