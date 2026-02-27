@@ -1,3 +1,5 @@
+package lesson3;
+
 public class Practise {
 
     public boolean isAdult(int age) {
