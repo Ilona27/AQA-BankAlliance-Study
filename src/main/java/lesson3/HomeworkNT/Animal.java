@@ -9,9 +9,12 @@ public abstract class Animal {
         this.animalType = animalType;
     }
 
-    protected Animal() {
+public String getAnimalType(){
+        return animalType;
+}
+
+    public String changeName(){
+        return getAnimalType().toUpperCase();
     }
-
-
     public abstract void makeSound();
 }
