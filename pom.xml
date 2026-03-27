@@ -15,6 +15,7 @@
 
         <testng.version>7.10.2</testng.version>
         <assertj.version>3.22.0</assertj.version>
+        <microsoft.playwright.version>1.43.0</microsoft.playwright.version>
     </properties>
 
     <dependencies>
@@ -28,6 +29,11 @@
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>${assertj.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.playwright</groupId>
+            <artifactId>playwright</artifactId>
+            <version>${microsoft.playwright.version}</version>
         </dependency>
     </dependencies>
 </project>
