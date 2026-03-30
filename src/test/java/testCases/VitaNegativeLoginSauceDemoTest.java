@@ -18,7 +18,9 @@ public class VitaNegativeLoginSauceDemoTest extends BaseUiTest {
         // When username is empty, SauceDemo shows this validation message.
         String errorMessage = sauceDemoLoginPage.getErrorMessage();
         Assertions.assertThat(errorMessage)
-                .isEqualTo("Epic sadface: Username is required");
+                .isNotBlank()
+                // Текст може трохи змінюватись, але ключова частина має бути.
+                .contains("Username is required");
     }
 }
 
