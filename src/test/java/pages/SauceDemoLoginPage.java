@@ -37,10 +37,13 @@ public class SauceDemoLoginPage {
     }
 
     public void loginSauceDemo() {
-        page.locator(loginButtonLocator);
+        // Click on the login button to trigger validation and UI updates.
+        page.locator(loginButtonLocator).click();
     }
 
     public String getErrorMessage() {
+        // Ensure the error block is rendered before reading its text.
+        page.locator(errorTextLocator).waitFor();
         return page.locator(errorTextLocator).textContent();
     }
 }
