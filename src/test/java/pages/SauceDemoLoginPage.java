@@ -1,6 +1,8 @@
 package pages;
 
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.WaitForSelectorState;
 
 public class SauceDemoLoginPage {
 
@@ -37,10 +39,13 @@ public class SauceDemoLoginPage {
     }
 
     public void loginSauceDemo() {
-        page.locator(loginButtonLocator);
+        page.locator(loginButtonLocator).click();
     }
 
-    public String getErrorMessage() {
+    public String getErrorMessage()
+    {
+        page.locator(errorTextLocator)
+                .waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
         return page.locator(errorTextLocator).textContent();
     }
 }
