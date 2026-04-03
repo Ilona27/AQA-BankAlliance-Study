@@ -39,4 +39,8 @@ public class ProductCardItem {
                 .cardPrice(getProductCardPrice())
                 .build();
     }
+
+    public void openProductDetails() {
+        root.locator(productCardName).click();
+    }
 }
