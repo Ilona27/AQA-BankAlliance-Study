@@ -3,6 +3,7 @@ package testCases;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 import pages.SauceDemoLoginPage;
+import pages.products.ProductsPage;
 
 public class SuccessLoginSauceDemoTest extends BaseUiTest {
 

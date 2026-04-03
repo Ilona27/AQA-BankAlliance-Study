@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class ProductsPage extends AbstractBasePage {
+public class ProductsPage extends AbstractBasePage<ProductsPage> {
 
     private String cartItemCountLocator = "//span[@data-test='shopping-cart-badge']";
     private String openCartLocator = "//a[@data-test='shopping-cart-link']";
