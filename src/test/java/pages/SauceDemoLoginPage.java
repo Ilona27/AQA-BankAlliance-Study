@@ -1,10 +1,11 @@
 package pages;
 
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.WaitForSelectorState;
+import pages.products.ProductsPage;
 
-public class SauceDemoLoginPage {
-
-    private final Page page;
+public class SauceDemoLoginPage extends AbstractBasePage {
 
     private String logoPageLocator = "//div[@class='login_logo']";
     private String userNameLocator = "//input[@data-test='username']";
@@ -15,7 +16,7 @@ public class SauceDemoLoginPage {
 
 
     public SauceDemoLoginPage(Page page) {
-        this.page = page;
+        super(page);
     }
 
     public SauceDemoLoginPage openLoginPage() {
@@ -36,14 +37,15 @@ public class SauceDemoLoginPage {
         return this;
     }
 
-    public void loginSauceDemo() {
-        // Click on the login button to trigger validation and UI updates.
+    public ProductsPage loginSauceDemo() {
         page.locator(loginButtonLocator).click();
+
+        return new ProductsPage(page);
     }
 
     public String getErrorMessage() {
-        // Ensure the error block is rendered before reading its text.
-        page.locator(errorTextLocator).waitFor();
+        page.locator(errorTextLocator)
+                .waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
         return page.locator(errorTextLocator).textContent();
     }
 }
