@@ -49,6 +49,13 @@ public class ProductsPage extends AbstractBasePage<ProductsPage> {
         throw new NoSuchElementException(String.format("Товар з назвою '%s' відсутній на сторінці", name));
     }
 
+    public ProductDetailsPage openProductDetailsByName(String name) {
+        ProductCardItem productCardItem = getProductCardByName(name);
+        productCardItem.openProductDetails();
+
+        return new ProductDetailsPage(page);
+    }
+
     public int getCartItemCount() {
         String count = page.locator(cartItemCountLocator).textContent();
         return Integer.parseInt(count);
