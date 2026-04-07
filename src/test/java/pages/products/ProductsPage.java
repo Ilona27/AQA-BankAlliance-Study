@@ -3,15 +3,13 @@ package pages.products;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import pages.AbstractBasePage;
+import pages.AbstractPageWithBurgerMenuAndCart;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class ProductsPage extends AbstractBasePage<ProductsPage> {
-
-    private String cartItemCountLocator = "//span[@data-test='shopping-cart-badge']";
-    private String openCartLocator = "//a[@data-test='shopping-cart-link']";
+public class ProductsPage extends AbstractPageWithBurgerMenuAndCart<ProductsPage> {
 
     private final Locator itemRoot;
 
@@ -47,14 +45,5 @@ public class ProductsPage extends AbstractBasePage<ProductsPage> {
         }
 
         throw new NoSuchElementException(String.format("Товар з назвою '%s' відсутній на сторінці", name));
-    }
-
-    public int getCartItemCount() {
-        String count = page.locator(cartItemCountLocator).textContent();
-        return Integer.parseInt(count);
-    }
-
-    public void openProductCart() {
-        page.locator(openCartLocator).click();
     }
 }
