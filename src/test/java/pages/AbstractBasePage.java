@@ -1,8 +1,9 @@
 package pages;
 
 import com.microsoft.playwright.Page;
+import interfaces.IExpectedPageValues;
 
-public class AbstractBasePage<T> {
+public class AbstractBasePage<T> implements IExpectedPageValues {
 
     protected final Page page;
 
@@ -13,5 +14,9 @@ public class AbstractBasePage<T> {
     public T waitForPageOpened() {
 
         return (T) this;
+    }
+
+    public String getPageTitle() {
+        return page.locator("//span[@data-test='title']").textContent();
     }
 }

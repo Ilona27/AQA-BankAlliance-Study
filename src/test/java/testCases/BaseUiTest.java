@@ -1,8 +1,10 @@
 package testCases;
 
 import com.microsoft.playwright.*;
+import org.assertj.core.api.Assertions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import pages.AbstractBasePage;
 
 import java.util.Collections;
 
@@ -42,5 +44,11 @@ public class BaseUiTest {
         if (playwright != null) {
             playwright.close();
         }
+    }
+
+    public <T extends AbstractBasePage<T>> void verifyPageTitle(T page) {
+        Assertions.assertThat(page.getPageTitle())
+                .as("Заголовок сторінки не співпадає з очікуваним")
+                .isEqualTo(page.getExpectedPageTitle());
     }
 }

@@ -15,6 +15,10 @@ public class SauceDemoLoginPage extends AbstractBasePage<SauceDemoLoginPage> {
     private String errorTextLocator = "//h3[@data-test='error']";
 
 
+    public String getExpectedPageTitle() {
+        return "Swag Labs";
+    }
+
     public SauceDemoLoginPage(Page page) {
         super(page);
     }

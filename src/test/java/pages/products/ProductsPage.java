@@ -18,6 +18,10 @@ public class ProductsPage extends AbstractPageWithBurgerMenuAndCart<ProductsPage
         this.itemRoot = page.locator("//div[@data-test='inventory-item']");
     }
 
+    public String getExpectedPageTitle() {
+        return "Products";
+    }
+
     public int getProductsCount() {
         return itemRoot.count();
     }
