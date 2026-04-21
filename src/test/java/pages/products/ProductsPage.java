@@ -51,9 +51,7 @@ public class ProductsPage extends AbstractBasePage {
 
     public ProductDetailsPage openProductDetailsByName(String name) {
         ProductCardItem productCardItem = getProductCardByName(name);
-        productCardItem.openProductDetails();
-
-        return new ProductDetailsPage(page);
+        return productCardItem.openProductDetails();
     }
 
     public int getCartItemCount() {

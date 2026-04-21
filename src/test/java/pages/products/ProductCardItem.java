@@ -40,7 +40,8 @@ public class ProductCardItem {
                 .build();
     }
 
-    public void openProductDetails() {
+    public ProductDetailsPage openProductDetails() {
         root.locator(productCardName).click();
+        return new ProductDetailsPage(root.page());
     }
 }
