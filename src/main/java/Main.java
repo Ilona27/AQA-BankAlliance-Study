@@ -1,6 +1,9 @@
 import lesson3.Practise;
 import lesson4.StringPractice;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {

@@ -5,7 +5,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.WaitForSelectorState;
 import pages.products.ProductsPage;
 
-public class SauceDemoLoginPage extends AbstractBasePage {
+public class SauceDemoLoginPage extends AbstractBasePage<SauceDemoLoginPage> {
 
     private String logoPageLocator = "//div[@class='login_logo']";
     private String userNameLocator = "//input[@data-test='username']";
@@ -14,6 +14,10 @@ public class SauceDemoLoginPage extends AbstractBasePage {
 
     private String errorTextLocator = "//h3[@data-test='error']";
 
+
+    public String getExpectedPageTitle() {
+        return "Swag Labs";
+    }
 
     public SauceDemoLoginPage(Page page) {
         super(page);
