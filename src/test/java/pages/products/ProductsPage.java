@@ -2,7 +2,6 @@ package pages.products;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import pages.AbstractBasePage;
 import pages.AbstractPageWithBurgerMenuAndCart;
 
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ import java.util.NoSuchElementException;
 public class ProductsPage extends AbstractPageWithBurgerMenuAndCart<ProductsPage> {
 
     private final Locator itemRoot;
-
+    private String shoppingCartButton = "//a[@data-test='shopping-cart-link']";
     public ProductsPage(Page page) {
         super(page);
         this.itemRoot = page.locator("//div[@data-test='inventory-item']");
@@ -49,5 +48,14 @@ public class ProductsPage extends AbstractPageWithBurgerMenuAndCart<ProductsPage
         }
 
         throw new NoSuchElementException(String.format("Товар з назвою '%s' відсутній на сторінці", name));
+    }
+    public ShoppingCartPage OpenShoppingCartPage() {
+        page.locator(shoppingCartButton).click();
+
+        return new ShoppingCartPage(page);
+    }
+
+    public void addProductbyName(String name) {
+        getProductCardByName(name).addProductToCart();
     }
 }

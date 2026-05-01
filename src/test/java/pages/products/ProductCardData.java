@@ -12,4 +12,5 @@ public class ProductCardData {
     private String cardTitle;
     private String cardDescription;
     private String cardPrice;
+    private String cardCount;
 }
