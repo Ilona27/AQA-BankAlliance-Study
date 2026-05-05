@@ -1,6 +1,7 @@
 package pages;
 
 import com.microsoft.playwright.Page;
+import pages.cart.CartPage;
 
 public class AbstractPageWithBurgerMenuAndCart<T extends AbstractPageWithBurgerMenuAndCart<T>> extends AbstractBasePage<T> {
 
@@ -18,11 +19,11 @@ public class AbstractPageWithBurgerMenuAndCart<T extends AbstractPageWithBurgerM
         return (T) this;
     }
 
-//    public CartPage openCartPage() {
-//        page.locator(cartButton).click();
-//
-//        return new CartPage();  //TODO uncomment when pageObject CartPage will be added
-//    }
+    public CartPage openCartPage() {
+        page.locator(cartButton).click();
+
+        return new CartPage(page);
+    }
 
     public int getCartProductsCount() {
         String count = page.locator(countProductsInCart).textContent();
