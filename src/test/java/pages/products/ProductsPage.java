@@ -50,4 +50,11 @@ public class ProductsPage extends AbstractPageWithBurgerMenuAndCart<ProductsPage
 
         throw new NoSuchElementException(String.format("Товар з назвою '%s' відсутній на сторінці", name));
     }
+
+    public ProductDetailsPage openProductDetailsByName(String name) {
+        ProductCardItem productCardItem = getProductCardByName(name);
+        return productCardItem.openProductDetails();
+    }
+
+
 }
